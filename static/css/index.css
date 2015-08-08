@@ -2,17 +2,21 @@ html {
 	cursor:none;
 }
 
+header {
+	margin-top: -15px;
+}
+
 #background::after {
-    content: "";
-    background: url("static/img/congruent_outline.png");
-    /* background-size: cover; */
-    opacity: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    z-index: -1;   
+	content: "";
+	background: url("static/img/congruent_outline.png");
+	/* background-size: cover; */
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	z-index: -1;   
 }
 
 .circular {
