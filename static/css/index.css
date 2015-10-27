@@ -8,7 +8,7 @@ html {
 
 #background::after {
 	content: "";
-	background: url("static/img/congruent_outline.png");
+	background: url("../img/congruent_outline.png");
 	/* background-size: cover; */
 	opacity: 1;
 	top: 0;
@@ -24,7 +24,7 @@ html {
 	height: 300px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
-	background: url("static/img/michael.png");
+	background: url("../img/michael.png");
 	border: 10px solid orange;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
