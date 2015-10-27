@@ -53,10 +53,10 @@ html {
 }
 
 .logo {
-	width: 150px;
-	height: 150px;
-	-webkit-border-radius: 75px;
-	-moz-border-radius: 75px;
+	width: 140px;
+	height: 140px;
+	-webkit-border-radius: 70px;
+	-moz-border-radius: 70px;
 	border: 10px solid orange;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
