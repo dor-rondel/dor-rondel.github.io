@@ -1,5 +1,5 @@
 $(document).mousemove(function(e){
-		$("#cursor").css({left:e.pageX, top:e.pageY});
+    $("#cursor").css({left:e.pageX, top:e.pageY});
 });
 
 $("#area").mouseenter(function() {
@@ -11,7 +11,8 @@ $("#area").mouseleave(function() {
 });
 
 $(document).ready(function () {
-	$(".small").hide();
+    
+    $(".small").hide();
 
     if (screen.width < 1024) {
         $(".big").hide();
