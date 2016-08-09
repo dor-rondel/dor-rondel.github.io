@@ -1,0 +1,259 @@
+darkGray = #333
+darkYellow = #f7c83b
+imgHeight = 10em
+lightRed = #ef5350
+
+body
+  margin 0
+  background-color
+
+.sectionTitle
+  text-align center
+
+.lightRed
+  background lightRed
+
+.darkGray
+  background darkGray
+
+
+//////////////////////////
+///////// Landing ////////
+//////////////////////////
+
+
+/* for particleJS */
+canvas
+  display block
+  vertical-align bottom
+
+#particles-js
+	width 100vw
+	height 100vh
+	background-color darkGray
+	background-image url("")
+	background-repeat no-repeat
+	background-size cover
+	background-position 50% 50%
+
+nav
+  top 0%
+  position fixed
+  width 100%
+  background darkGray
+  color #fff
+  transition all 0.4s ease
+
+
+/* for sticky navbar */
+nav.sticky
+  font-size 24px
+  line-height 48px
+  height 55px
+  text-align left
+  padding-left 20px
+  z-index: 5;
+
+
+.pushRight
+  margin-left 0.8em
+
+
+.homeLogo
+  font-family 'Caesar Dressing', cursive
+
+
+.retro
+  font-family 'Press Start 2P', cursive
+
+
+.circular
+  position absolute
+  top imgHeight
+  left 37%
+  width 360px
+  height 360px
+  -webkit-border-radius 180px
+  -moz-border-radius 180px
+  background url("../img/rsz_me.png")
+  border 10px solid darkYellow
+  box-shadow 0 0 8px rgba(0, 0, 0, 0.9)
+  -webkit-box-shadow 0 0 8px rgba(0, 0, 0, 0.9)
+  -moz-box-shadow 0 0 8px rgba(0, 0, 0, 0.9)
+  margin 0 auto
+
+
+#typed
+  text-align center
+  color darkYellow
+  position absolute
+  font-size 30px
+  top imgHeight + 10em
+  left 10em
+
+
+//////////////////////////
+///////// About //////////
+//////////////////////////
+
+
+#about
+  margin-top: -10px
+  font-family 'Bitter', serif
+  color darkGray
+  font-size 20px
+
+  a
+    color lightRed
+
+
+//////////////////////////
+/////// Portfolio ////////
+//////////////////////////
+
+
+#portfolio
+  background-color lightRed
+  font-family 'Bitter', serif
+  color darkGray
+  padding-top 1px
+
+  h1
+    color #fdfdfd
+    margin-bottom 40px
+
+  span
+    color orange
+
+  a
+    color lightRed
+
+
+//////////////////////////
+/////// Contact //////////
+//////////////////////////
+
+
+#contact
+  color lightRed
+  padding-top 30px
+
+  h1
+    margin-bottom 50px
+    font-family 'Bitter', serif
+
+  textarea
+    &:focus
+      color lightRed
+      border-bottom: 1px solid lightRed
+      box-shadow: 0 1px 0 0 lightRed
+
+  textarea:focus + label
+    color lightRed
+
+  button
+    width 30%
+    text-align:center
+    margin:auto
+    left 38%
+    margin-bottom 50px
+
+
+ .input-field label
+   color lightRed
+
+
+ .input-field input[type=text]:focus + label
+   color lightRed
+
+
+ .input-field input[type=text]:focus
+   border-bottom: 1px solid lightRed
+   box-shadow: 0 1px 0 0 lightRed
+
+
+ .input-field input[type=text].valid
+   border-bottom: 1px solid lightRed
+   box-shadow: 0 1px 0 0 lightRed
+
+
+ .input-field input[type=text].invalid
+   border-bottom: 1px solid lightRed
+   box-shadow: 0 1px 0 0 lightRed
+
+
+
+ .input-field input[type=email]:focus + label
+   color lightRed
+
+
+ .input-field input[type=email]:focus
+   border-bottom: 1px solid lightRed
+   box-shadow: 0 1px 0 0 lightRed
+
+
+
+ .input-field .prefix.active
+   color lightRed
+
+
+.materialize-textarea
+  color lightRed
+  margin-bottom 25px
+
+
+//////////////////////////
+/////// Footer ///////////
+//////////////////////////
+
+footer
+  background-color lightRed
+  text-align center
+  padding 20px
+  color white
+
+  li
+    list-style-type none
+    display inline
+    margin-right 35px
+
+  .fa
+    font-size 35px
+
+  a
+    text-decoration none
+    color white
+
+//////////////////////////
+////// Media Queries /////
+//////////////////////////
+
+@media (min-width: 900px) and (max-width: 1200px)
+  .circular
+    left 33%
+
+  #typed
+    left 4.5em
+
+@media (min-width: 680px) and (max-width: 900px)
+  .circular
+    left 29%
+
+  #typed
+    left 3em
+    font-size 29px
+
+@media (min-width: 426px) and (max-width: 680px)
+  .circular
+    left 18%
+
+  #typed
+    left 1.5em
+
+@media (max-width: 425px)
+    .circular
+      left 3%
+
+    #typed
+      font-size 27px
+      left 0em
