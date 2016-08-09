@@ -1,6 +1,6 @@
 body {
   margin: 0;
-background-color
+  background-color
 }
 .sectionTitle {
   text-align: center;
@@ -116,10 +116,10 @@ nav.sticky {
   color: #ef5350;
 }
 #contact button {
-  width: 30%;
+  width: 48%;
   text-align: center;
   margin: auto;
-  left: 38%;
+  left: 26%;
   margin-bottom: 50px;
 }
 .input-field label {
