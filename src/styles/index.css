@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+}
+.sectionTitle {
+  text-align: center;
+}
+.lightRed {
+  background: #ef5350;
+}
+.darkGray {
+  background: #333;
+}
+/* for particleJS */
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+nav {
+  top: 0%;
+  position: fixed;
+  width: 100%;
+  background: #333;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+/* for sticky navbar */
+nav.sticky {
+  font-size: 24px;
+  line-height: 48px;
+  height: 55px;
+  text-align: left;
+  padding-left: 20px;
+  z-index: 5;
+}
+.pushRight {
+  margin-left: 0.8em;
+}
+.homeLogo {
+  font-family: 'Caesar Dressing', cursive;
+}
+.retro {
+  font-family: 'Press Start 2P', cursive;
+}
+.circular {
+  position: absolute;
+  top: 10em;
+  left: 37%;
+  width: 360px;
+  height: 360px;
+  -webkit-border-radius: 180px;
+  -moz-border-radius: 180px;
+  background: url("../img/rsz_me.png");
+  border: 10px solid #f7c83b;
+  box-shadow: 0 0 8px rgba(0,0,0,0.9);
+  -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.9);
+  -moz-box-shadow: 0 0 8px rgba(0,0,0,0.9);
+  margin: 0 auto;
+}
+#typed {
+  text-align: center;
+  color: #f7c83b;
+  position: absolute;
+  font-size: 30px;
+  top: 20em;
+  left: 10em;
+}
+#about {
+  margin-top: -10px;
+  font-family: 'Bitter', serif;
+  color: #333;
+  font-size: 20px;
+}
+#about a {
+  color: #ef5350;
+}
+#portfolio {
+  background-color: #ef5350;
+  font-family: 'Bitter', serif;
+  color: #333;
+  padding-top: 1px;
+}
+#portfolio h1 {
+  color: #fdfdfd;
+  margin-bottom: 40px;
+}
+#portfolio span {
+  color: #ffa500;
+}
+#portfolio a {
+  color: #ef5350;
+}
+#contact {
+  color: #ef5350;
+  padding-top: 30px;
+}
+#contact h1 {
+  margin-bottom: 50px;
+  font-family: 'Bitter', serif;
+}
+#contact textarea:focus {
+  color: #ef5350;
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+#contact textarea:focus + label {
+  color: #ef5350;
+}
+#contact button {
+  width: 48%;
+  text-align: center;
+  margin: auto;
+  left: 26%;
+  margin-bottom: 50px;
+}
+.input-field label {
+  color: #ef5350;
+}
+.input-field input[type=text]:focus + label {
+  color: #ef5350;
+}
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+.input-field input[type=email]:focus + label {
+  color: #ef5350;
+}
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #ef5350;
+  box-shadow: 0 1px 0 0 #ef5350;
+}
+.input-field .prefix.active {
+  color: #ef5350;
+}
+.materialize-textarea {
+  color: #ef5350;
+  margin-bottom: 25px;
+}
+footer {
+  background-color: #ef5350;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+footer li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 35px;
+}
+footer .fa {
+  font-size: 35px;
+}
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+@media (min-width: 900px) and (max-width: 1200px) {
+  .circular {
+    left: 33%;
+  }
+  #typed {
+    left: 4.5em;
+  }
+}
+@media (min-width: 680px) and (max-width: 900px) {
+  .circular {
+    left: 29%;
+  }
+  #typed {
+    left: 3em;
+    font-size: 29px;
+  }
+}
+@media (min-width: 426px) and (max-width: 680px) {
+  .circular {
+    left: 18%;
+  }
+  #typed {
+    left: 1.5em;
+  }
+}
+@media (min-width: 321px) and (max-width: 425px) {
+  .circular {
+    left: 7%;
+  }
+  #typed {
+    font-size: 27px;
+    left: 0em;
+  }
+  footer li {
+    margin-right: 23px;
+  }
+  footer .fa {
+    font-size: 25px;
+  }
+}
+@media (max-width: 321px) {
+  #typed {
+    top: 25em;
+    font-size: 20px;
+  }
+  .circular {
+    left: 0%;
+  }
+  footer li {
+    margin-right: 20px;
+  }
+  footer .fa {
+    font-size: 23px;
+  }
+}
