@@ -5,7 +5,6 @@ lightRed = #ef5350
 
 body
   margin 0
-  background-color
 
 .sectionTitle
   text-align center
@@ -250,10 +249,31 @@ footer
   #typed
     left 1.5em
 
-@media (max-width: 425px)
+@media (min-width: 321px) and (max-width: 425px)
     .circular
-      left 3%
+      left 7%
 
     #typed
       font-size 27px
       left 0em
+
+    footer li
+      margin-right 23px
+
+    footer .fa
+      font-size 25px
+
+
+@media (max-width: 321px)
+    #typed
+      top imgHeight + 15em
+      font-size 20px
+
+    .circular
+      left 0%
+
+    footer li
+      margin-right 20px
+
+    footer .fa
+      font-size 23px

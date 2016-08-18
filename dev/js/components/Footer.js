@@ -16,18 +16,23 @@ export default class Footer extends React.Component {
             </a>
           </li>
           <li>
-            <a href="./docs/dor_rondel_technical_resume.pdf">
+            <a href="./src/docs/dor_rondel_technical_resume.pdf">
               <i className="fa fa-file-text" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="stackoverflow.com/users/3833784/dor-ron">
+            <a href="http://stackoverflow.com/users/3833784/dor-ron">
               <i className="fa fa-stack-overflow" aria-hidden="true"></i>
             </a>
           </li>
           <li>
             <a href="https://twitter.com/ValparDor">
               <i className="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dor-rondel-1b9a30108">
+              <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
