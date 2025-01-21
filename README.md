@@ -1,3 +1,3 @@
-# d-0-r.github.io
-Personal website... Still a work in progress.
+# dor-rondel.github.io
 
+Personal website, past & current
