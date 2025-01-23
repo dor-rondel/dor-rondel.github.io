@@ -1,6 +1,5 @@
 import { Suspense, useMemo } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
 
 import WormholeTube from "./WormholeTube"
 import WormholeLights from "./WormholeLights"
@@ -24,7 +23,6 @@ const WormholeScene = () => {
         <WormholeTube />
         {dodecahedrons}
       </Suspense>
-      <OrbitControls />
       <EffectComposer>
         <Bloom mipmapBlur luminanceThreshold={1} />
       </EffectComposer>
