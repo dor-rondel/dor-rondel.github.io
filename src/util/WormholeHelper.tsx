@@ -45,13 +45,7 @@ export const createDodecahedronArray = (
   amount: number,
   tubeGeo: TubeGeometry = tubeGeoInstance
 ): React.ReactElement[] => {
-  const final: React.ReactElement[] = [
-    <WormholeDodeGeo
-      position={new Vector3(0, 0, 0)}
-      rotation={new Euler(0, 0, 0)}
-      size={0.05}
-    />,
-  ]
+  const final: React.ReactElement[] = []
 
   for (let i = 0; i < amount; i += 1) {
     const p = (i / amount + Math.random() * 0.1) % 1
