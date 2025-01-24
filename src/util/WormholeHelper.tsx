@@ -1,6 +1,7 @@
 import { Camera, CatmullRomCurve3, Euler, TubeGeometry, Vector3 } from "three"
 import splineData from "../data/splineData"
-import WormholeDodeGeo from "../scenes/WormholeScene/WormholeDodeGeo"
+import WormholeBoxGeo from "../scenes/WormholeScene/WormholeBoxGeo"
+import logos from "../data/logos"
 
 const generateCurveFromVector3Array = (
   splineCoordinates: number[] = splineData
@@ -41,7 +42,7 @@ export const tubeGeoInstance = createTubeGeometry(
   generateCurveFromVector3Array()
 )
 
-export const createDodecahedronArray = (
+export const createLogoBoxesArray = (
   amount: number,
   tubeGeo: TubeGeometry = tubeGeoInstance
 ): React.ReactElement[] => {
@@ -52,7 +53,7 @@ export const createDodecahedronArray = (
     const pos = tubeGeo.parameters.path.getPointAt(p)
 
     final.push(
-      <WormholeDodeGeo
+      <WormholeBoxGeo
         key={i}
         position={
           new Vector3(
@@ -69,6 +70,7 @@ export const createDodecahedronArray = (
           )
         }
         size={0.1}
+        logo={logos[i % logos.length]}
       />
     )
   }
