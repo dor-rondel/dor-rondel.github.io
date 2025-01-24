@@ -1,7 +1,18 @@
-import { Camera, CatmullRomCurve3, Euler, TubeGeometry, Vector3 } from "three"
+import {
+  Camera,
+  CatmullRomCurve3,
+  Euler,
+  IcosahedronGeometry,
+  Mesh,
+  MeshBasicMaterial,
+  TubeGeometry,
+  Vector3,
+} from "three"
+
 import splineData from "../data/splineData"
 import WormholeBoxGeo from "../scenes/WormholeScene/WormholeBoxGeo"
 import logos from "../data/logos"
+import { COLOR_HEXES } from "../data/constants"
 
 const generateCurveFromVector3Array = (
   splineCoordinates: number[] = splineData
@@ -76,4 +87,17 @@ export const createLogoBoxesArray = (
   }
 
   return final
+}
+
+export const makeNewLaserSceneObjects = () => {
+  const laserMaterial = new MeshBasicMaterial({
+    color: COLOR_HEXES.DARK_YELLOW,
+    transparent: true,
+    fog: false,
+  })
+
+  return {
+    laserMesh: new Mesh(new IcosahedronGeometry(0.05, 2), laserMaterial),
+    laserDirection: new Vector3(0, 0, 0),
+  }
 }
