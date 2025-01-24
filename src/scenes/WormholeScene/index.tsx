@@ -5,12 +5,12 @@ import WormholeTube from "./WormholeTube"
 import WormholeLights from "./WormholeLights"
 
 import "./Wormhole.scss"
-import { createDodecahedronArray } from "../../util/WormholeHelper"
+import { createLogoBoxesArray } from "../../util/WormholeHelper"
 import { EffectComposer, Bloom } from "@react-three/postprocessing"
 
 const WormholeScene = () => {
-  const dodecahedrons = useMemo<React.ReactElement[]>(
-    () => createDodecahedronArray(70),
+  const logoBoxes = useMemo<React.ReactElement[]>(
+    () => createLogoBoxesArray(120),
     []
   )
 
@@ -21,10 +21,10 @@ const WormholeScene = () => {
       <WormholeLights />
       <Suspense fallback={null}>
         <WormholeTube />
-        {dodecahedrons}
+        {logoBoxes}
       </Suspense>
       <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={1} />
+        <Bloom mipmapBlur luminanceThreshold={0} />
       </EffectComposer>
     </Canvas>
   )

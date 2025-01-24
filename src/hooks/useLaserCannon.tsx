@@ -7,6 +7,7 @@ import {
   Object3DEventMap,
   Vector3,
   Raycaster,
+  Object3D,
 } from "three"
 
 import useCrosshairCursor from "./useCrosshairCursor"
@@ -18,7 +19,7 @@ const useLaserCannon = () => {
   const raycaster = new Raycaster()
   const direction = new Vector3()
   const impactPos = new Vector3()
-  const impactColor = 0x00ff66
+  const impactColor = 0xff0000
 
   const [lasers, setLasers] = useState<
     Mesh<IcosahedronGeometry, MeshBasicMaterial, Object3DEventMap>[]
@@ -55,12 +56,12 @@ const useLaserCannon = () => {
       direction.subVectors(goalPos, camera.position)
       raycaster.set(camera.position, direction)
 
-      const invisibleDodes = scene.children.filter(
-        (o: any) =>
-          o && o.geometry && o.geometry.type === "DodecahedronGeometry"
+      const boxesInScene = scene.children.filter(
+        (obj: Object3D<Object3DEventMap>) =>
+          (obj as Mesh)?.geometry?.type === "BoxGeometry"
       )
 
-      let intersects = raycaster.intersectObjects([...invisibleDodes], true)
+      let intersects = raycaster.intersectObjects([...boxesInScene], true)
 
       if (intersects.length > 0) {
         impactPos.copy(intersects[0].point)
@@ -104,12 +105,17 @@ const useLaserCannon = () => {
       const laser = getLaserBolt()
       setLasers((prevLasers) => [...prevLasers, laser])
       scene.add(laser)
+
+      setTimeout(() => {
+        scene.remove(laser)
+      }, 1000)
     }
 
     window.addEventListener("click", fireLaser)
 
     return () => {
       window.removeEventListener("click", fireLaser)
+      scene.remove(...lasers)
     }
   }, [camera, crosshairs, scene])
 
