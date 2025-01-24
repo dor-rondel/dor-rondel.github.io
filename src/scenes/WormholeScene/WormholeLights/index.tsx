@@ -1,7 +1,9 @@
+import { COLOR_HEXES } from "../../../data/constants"
+
 const WormholeLights = () => (
   <group>
-    <pointLight intensity={1} distance={100} color={0xffffff} />
-    <ambientLight color={0xffffff} intensity={0.75} />
+    <pointLight intensity={1} distance={100} color={COLOR_HEXES.WHITE} />
+    <ambientLight color={COLOR_HEXES.WHITE} intensity={1} />
   </group>
 )
 

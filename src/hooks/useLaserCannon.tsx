@@ -10,114 +10,111 @@ import {
   Object3D,
 } from "three"
 
-import useCrosshairCursor from "./useCrosshairCursor"
+import { COLOR_HEXES } from "../data/constants"
+import { makeNewLaserSceneObjects } from "../util/WormholeHelper"
 
 const useLaserCannon = () => {
-  const { crosshairs } = useCrosshairCursor()
   const { camera, scene } = useThree()
+
+  const crosshairs = scene?.children
+    ?.find((o) => o.type === "PerspectiveCamera")
+    ?.children.find((o) => o.type === "Group" && o.children.length === 4)
 
   const raycaster = new Raycaster()
   const direction = new Vector3()
-  const impactPos = new Vector3()
-  const impactColor = 0xff0000
+  const collisionPosition = new Vector3()
+  const collisionColor = COLOR_HEXES.RED
 
   const [lasers, setLasers] = useState<
     Mesh<IcosahedronGeometry, MeshBasicMaterial, Object3DEventMap>[]
   >([])
 
-  useEffect(() => {
-    if (!crosshairs) return
+  const makeLaserObject = (): Mesh<
+    IcosahedronGeometry,
+    MeshBasicMaterial,
+    Object3DEventMap
+  > => {
+    const aimedPosition = camera.position
+      .clone()
+      .setFromMatrixPosition(crosshairs!.matrixWorld)
 
-    const laserGeo = new IcosahedronGeometry(0.05, 2)
+    const { laserMesh, laserDirection } = makeNewLaserSceneObjects()
+    laserMesh.position.copy(camera.position)
 
-    const getLaserBolt = () => {
-      const laserMat = new MeshBasicMaterial({
-        color: 0xffcc00,
-        transparent: true,
-        fog: false,
-      })
+    let active = true
+    let speed = 0.5
 
-      const laserBolt = new Mesh(laserGeo, laserMat)
-      laserBolt.position.copy(camera.position)
+    laserDirection
+      .subVectors(laserMesh.position, aimedPosition)
+      .normalize()
+      .multiplyScalar(speed)
 
-      let active = true
-      let speed = 0.5
+    direction.subVectors(aimedPosition, camera.position)
+    raycaster.set(camera.position, direction)
 
-      const goalPos = camera.position
-        .clone()
-        .setFromMatrixPosition(crosshairs.matrixWorld)
+    const boxesInScene = scene.children.filter(
+      (obj: Object3D<Object3DEventMap>) =>
+        (obj as Mesh)?.geometry?.type === "BoxGeometry"
+    )
 
-      const laserDirection = new Vector3(0, 0, 0)
-      laserDirection
-        .subVectors(laserBolt.position, goalPos)
-        .normalize()
-        .multiplyScalar(speed)
+    let intersects = raycaster.intersectObjects([...boxesInScene], true)
 
-      direction.subVectors(goalPos, camera.position)
-      raycaster.set(camera.position, direction)
+    if (intersects.length > 0) {
+      collisionPosition.copy(intersects[0].point)
+      scene.remove(intersects[0].object)
+    }
 
-      const boxesInScene = scene.children.filter(
-        (obj: Object3D<Object3DEventMap>) =>
-          (obj as Mesh)?.geometry?.type === "BoxGeometry"
-      )
+    let scale = 1.0
+    let opacity = 1.0
+    let isExploding = false
 
-      let intersects = raycaster.intersectObjects([...boxesInScene], true)
+    const animateCollision = () => {
+      if (active === true) {
+        if (isExploding === false) {
+          laserMesh.position.sub(laserDirection)
 
-      if (intersects.length > 0) {
-        impactPos.copy(intersects[0].point)
-        scene.remove(intersects[0].object)
-      }
-
-      let scale = 1.0
-      let opacity = 1.0
-      let isExploding = false
-
-      const update = () => {
-        if (active === true) {
-          if (isExploding === false) {
-            laserBolt.position.sub(laserDirection)
-
-            if (laserBolt.position.distanceTo(impactPos) < 0.5) {
-              laserBolt.position.copy(impactPos)
-              laserBolt.material.color.set(impactColor)
-              isExploding = true
-            }
-          } else {
-            if (opacity > 0.01) {
-              scale += 0.2
-              opacity *= 0.85
-            } else {
-              opacity = 0.0
-              scale = 0.01
-              active = false
-            }
-            laserBolt.scale.setScalar(scale)
-            laserBolt.material.opacity = opacity
-            laserBolt.userData.active = active
+          if (laserMesh.position.distanceTo(collisionPosition) < 0.5) {
+            laserMesh.position.copy(collisionPosition)
+            laserMesh.material.color.set(collisionColor)
+            isExploding = true
           }
+        } else {
+          if (opacity > 0.01) {
+            scale += 0.2
+            opacity *= 0.85
+          } else {
+            opacity = 0.0
+            scale = 0.01
+            active = false
+          }
+          laserMesh.scale.setScalar(scale)
+          laserMesh.material.opacity = opacity
+          laserMesh.userData.active = active
         }
       }
-      laserBolt.userData = { update, active }
-      return laserBolt
     }
+    laserMesh.userData = { animateCollision, active }
+    return laserMesh
+  }
 
-    const fireLaser = () => {
-      const laser = getLaserBolt()
-      setLasers((prevLasers) => [...prevLasers, laser])
-      scene.add(laser)
+  const fireLaser = () => {
+    const laser = makeLaserObject()
+    setLasers((prevLasers) => [...prevLasers, laser])
+    scene.add(laser)
 
-      setTimeout(() => {
-        scene.remove(laser)
-      }, 1000)
-    }
+    setTimeout(() => {
+      scene.remove(laser)
+    }, 1000)
+  }
 
+  useEffect(() => {
     window.addEventListener("click", fireLaser)
 
     return () => {
       window.removeEventListener("click", fireLaser)
       scene.remove(...lasers)
     }
-  }, [camera, crosshairs, scene])
+  }, [crosshairs?.children?.length])
 
   return lasers
 }
