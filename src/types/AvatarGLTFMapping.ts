@@ -16,7 +16,7 @@ export type AvatarGLTFMapping = GLTF & {
   }
   materials: {
     Wolf3D_Body: MeshStandardMaterial
-    Wolf3D_Outfit_Bottom: MeshStandardMaterial
+    ["Wolf3D_Outfit_Bottom.002"]: MeshStandardMaterial
     Wolf3D_Outfit_Footwear: MeshStandardMaterial
     Wolf3D_Outfit_Top: MeshStandardMaterial
     Wolf3D_Hair: MeshStandardMaterial
