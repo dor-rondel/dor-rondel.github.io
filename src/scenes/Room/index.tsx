@@ -4,19 +4,25 @@ import { animate, useMotionValue } from "framer-motion"
 import { motion } from "framer-motion-3d"
 import { useEffect } from "react"
 
-import { MeshStandardMaterial, SRGBColorSpace, sRGBEncoding } from "three"
+// @ts-ignore
+import { MeshStandardMaterial, sRGBEncoding, Texture } from "three"
 import { RoomGLTFMapping } from "../../types/RoomGLTFMapping"
 
 type RoomProps = {
   section: number
 }
 
+type TextureWithEncoding = Texture & {
+  encoding: unknown
+}
+
 const Room = ({ section }: RoomProps) => {
   const { nodes } = useGLTF("models/scene.gltf") as RoomGLTFMapping
-  const texture = useTexture("textures/baked.jpg")
+  const texture = useTexture("textures/baked.jpg") as TextureWithEncoding
   const textureVSCode = useVideoTexture("textures/vscode.mp4")
 
   texture.flipY = false
+
   texture.encoding = sRGBEncoding
 
   const textureMaterial = new MeshStandardMaterial({
