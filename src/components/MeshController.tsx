@@ -14,13 +14,13 @@ import { framerMotionConfig } from "../config"
 import { Avatar } from "./Avatar"
 import Background from "./Background"
 import Room from "./Room"
-import { Projects } from "./Projects"
+import ProjectsContainer from "./Projects/ProjectsContainer"
 
-type ExperienceProps = {
+type MeshControllerProps = {
   menuOpened: boolean
 }
 
-export const Experience = ({ menuOpened }: ExperienceProps) => {
+const MeshController = ({ menuOpened }: MeshControllerProps) => {
   const { viewport } = useThree()
   const data = useScroll()
 
@@ -28,7 +28,7 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
   const responsiveRatio = viewport.width / 12
   const officeScaleRatio = Math.max(0.5, Math.min(0.9 * responsiveRatio, 0.9))
 
-  const [section, setSection] = useState(0)
+  const [scene, setScene] = useState(0)
 
   const cameraPositionX = useMotionValue(0)
   const cameraLookAtX = useMotionValue(0)
@@ -44,27 +44,27 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
   useEffect(() => {
     setCharacterAnimation("Falling")
     setTimeout(() => {
-      setCharacterAnimation(section === 0 ? "Typing" : "Standing")
+      setCharacterAnimation(scene === 0 ? "Typing" : "Standing")
     }, 600)
-  }, [section])
+  }, [scene])
 
   const characterGroup = useRef<GroupProps>(null)
 
   useFrame((state) => {
-    let curSection = Math.floor(data.offset * data.pages)
+    let curScene = Math.floor(data.offset * data.pages)
 
-    if (curSection > 3) {
-      curSection = 3
+    if (curScene > 3) {
+      curScene = 3
     }
 
-    if (curSection !== section) {
-      setSection(curSection)
+    if (curScene !== scene) {
+      setScene(curScene)
     }
 
     state.camera.position.x = cameraPositionX.get()
     state.camera.lookAt(cameraLookAtX.get(), 0, 0)
 
-    if (section === 0 && characterGroup.current !== null) {
+    if (scene === 0 && characterGroup.current !== null) {
       characterContainerAboutRef.current?.getWorldPosition(
         characterGroup.current.position as Vector3
       )
@@ -78,7 +78,7 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
         ref={characterGroup}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
-        animate={"" + section}
+        animate={`${scene}`}
         transition={{
           duration: 0.6,
         }}
@@ -123,7 +123,7 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
           },
         }}
       >
-        <Avatar animation={characterAnimation} wireframe={section === 1} />
+        <Avatar animation={characterAnimation} wireframe={scene === 1} />
       </motion.group>
       <ambientLight intensity={1} />
       <motion.group
@@ -141,7 +141,7 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
           duration: 0.8,
         }}
       >
-        <Room section={section} />
+        <Room section={scene} />
         <group
           ref={characterContainerAboutRef}
           name='CharacterSpot'
@@ -158,9 +158,9 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
           -10,
         ]}
         animate={{
-          z: section === 1 ? 0 : -10,
+          z: scene === 1 ? 0 : -10,
           y:
-            section === 1
+            scene === 1
               ? -viewport.height
               : isMobile
               ? -viewport.height
@@ -205,7 +205,9 @@ export const Experience = ({ menuOpened }: ExperienceProps) => {
           </mesh>
         </Float>
       </motion.group>
-      <Projects />
+      <ProjectsContainer />
     </>
   )
 }
+
+export default MeshController

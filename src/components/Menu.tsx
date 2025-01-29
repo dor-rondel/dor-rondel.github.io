@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react"
 
 type MenuProps = {
-  onSectionChange: Dispatch<SetStateAction<number>>
+  handleSceneChange: Dispatch<SetStateAction<number>>
   menuOpened: boolean
   setMenuOpened: Dispatch<SetStateAction<boolean>>
 }
 
 export const Menu = ({
-  onSectionChange,
+  handleSceneChange,
   menuOpened,
   setMenuOpened,
 }: MenuProps) => (
@@ -37,10 +37,10 @@ export const Menu = ({
       ${menuOpened ? "w-full md:w-80" : "w-0"}`}
     >
       <div className='flex-1 flex items-start justify-center flex-col gap-6 p-8'>
-        <MenuButton label='About' handleClick={() => onSectionChange(0)} />
-        <MenuButton label='Skills' handleClick={() => onSectionChange(1)} />
-        <MenuButton label='Projects' handleClick={() => onSectionChange(2)} />
-        <MenuButton label='Contact' handleClick={() => onSectionChange(3)} />
+        <MenuButton label='About' handleClick={() => handleSceneChange(0)} />
+        <MenuButton label='Skills' handleClick={() => handleSceneChange(1)} />
+        <MenuButton label='Projects' handleClick={() => handleSceneChange(2)} />
+        <MenuButton label='Contact' handleClick={() => handleSceneChange(3)} />
       </div>
     </div>
   </>

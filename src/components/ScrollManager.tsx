@@ -5,12 +5,12 @@ import { useEffect, useRef, Dispatch, SetStateAction } from "react"
 
 type ScrollManagerProps = {
   section: number
-  onSectionChange: Dispatch<SetStateAction<number>>
+  handleSceneChange: Dispatch<SetStateAction<number>>
 }
 
 export const ScrollManager = ({
   section,
-  onSectionChange,
+  handleSceneChange,
 }: ScrollManagerProps) => {
   const data = useScroll()
   const lastScroll = useRef(0)
@@ -40,13 +40,13 @@ export const ScrollManager = ({
 
     const curSection = Math.floor(data.offset * data.pages)
     if (data.offset > lastScroll.current && curSection === 0) {
-      onSectionChange(1)
+      handleSceneChange(1)
     }
     if (
       data.offset < lastScroll.current &&
       data.offset < 1 / (data.pages - 1)
     ) {
-      onSectionChange(0)
+      handleSceneChange(0)
     }
     lastScroll.current = data.offset
   })
