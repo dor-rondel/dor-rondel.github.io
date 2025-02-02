@@ -24,7 +24,7 @@ const IntroductionScene = ({ setScene }: SceneChildProps) => (
         delay: 1.5,
       }}
     >
-      A software engineer exploring the interScene&nbsp;
+      A software engineer exploring the intersection&nbsp;
       {window.innerWidth > 600 && <br />}
       between 3D experiences, LLMs & Blockchain
     </motion.p>
