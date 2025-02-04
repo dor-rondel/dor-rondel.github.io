@@ -20,7 +20,12 @@ export const projects: Project[] = [
     image: "projects/nbayyy.png",
     description: "Seasonal NBA player statistics viewer",
   },
-
+  {
+    title: "3rd Person Flight",
+    url: "https://dor-rondel.github.io/r3f-flight-scene/",
+    image: "projects/flight.png",
+    description: "Informational 3D flight scene concept",
+  },
   {
     title: "3D Wormhole",
     url: "https://dor-rondel.github.io/wormhole-game/",
