@@ -16,7 +16,7 @@ export const projects: Project[] = [
   },
 
   {
-    title: "3F Yu-Gi-Oh! Scene",
+    title: "3D Yu-Gi-Oh! Scene",
     url: "https://dor-rondel.github.io/r3f-yugioh-scene/",
     image: "projects/yugioh.png",
     description: "Speed Duel animated 3D board state",
