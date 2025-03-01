@@ -14,6 +14,13 @@ export const projects: Project[] = [
     image: "projects/dnace.png",
     description: "Bioinformatics graphical analysis for FASTA genome files",
   },
+
+  {
+    title: "3D Yu-Gi-Oh! Scene",
+    url: "https://dor-rondel.github.io/r3f-yugioh-scene/",
+    image: "projects/yugioh.png",
+    description: "Speed Duel animated 3D board state",
+  },
   {
     title: "NBAyyy",
     url: "https://github.com/dor-rondel/NBAyyy",
@@ -21,16 +28,16 @@ export const projects: Project[] = [
     description: "Seasonal NBA player statistics viewer",
   },
   {
-    title: "3rd Person Flight",
-    url: "https://dor-rondel.github.io/r3f-flight-scene/",
-    image: "projects/flight.png",
-    description: "Informational 3D flight scene concept",
-  },
-  {
     title: "3D Wormhole",
     url: "https://dor-rondel.github.io/wormhole-game/",
     image: "projects/wormhole.png",
     description: "ThreeJS collision detection wormhole scene",
+  },
+  {
+    title: "3rd Person Flight",
+    url: "https://dor-rondel.github.io/r3f-flight-scene/",
+    image: "projects/flight.png",
+    description: "Informational 3D flight scene concept",
   },
   {
     title: "RMC Website",
