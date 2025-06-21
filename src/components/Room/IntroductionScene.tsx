@@ -6,7 +6,7 @@ const IntroductionScene = ({ setScene }: SceneChildProps) => (
   <Scene mobileTop>
     <h1 className='text-4xl md:text-6xl font-extrabold leading-snug mt-8 md:mt-0'>
       Hi, I'm
-      <br />
+      <br className="md:leading-relaxed"/>
       <span className='bg-white px-1 italic'>Dor Rondel</span>
     </h1>
     <motion.p
