@@ -10,3 +10,13 @@
 body {
   margin: 0;
 }
+
+@media (min-width: 768px) {
+  .custom-show-md {
+    display: block !important;
+  }
+
+  .top-spacing {
+    margin-top: 3rem !important; /* 48px */
+  }
+}
