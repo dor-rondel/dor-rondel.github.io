@@ -14,7 +14,12 @@ export const projects: Project[] = [
     image: "projects/dnace.png",
     description: "Bioinformatics graphical analysis for FASTA genome files",
   },
-
+    {
+    title: "NBAyyy",
+    url: "https://github.com/dor-rondel/confidential-rag-chatbot",
+    image: "projects/nbayyy.png",
+    description: "Seasonal NBA player statistics viewer",
+  },
   {
     title: "3D Yu-Gi-Oh! Scene",
     url: "https://dor-rondel.github.io/r3f-yugioh-scene/",
@@ -22,10 +27,10 @@ export const projects: Project[] = [
     description: "Speed Duel animated 3D board state",
   },
   {
-    title: "NBAyyy",
+    title: "Confidential RAG",
     url: "https://github.com/dor-rondel/NBAyyy",
-    image: "projects/nbayyy.png",
-    description: "Seasonal NBA player statistics viewer",
+    image: "projects/confidential-rag.png",
+    description: "Locally run LLM and Emeddings to privately communicate with your files",
   },
   {
     title: "3D Wormhole",
