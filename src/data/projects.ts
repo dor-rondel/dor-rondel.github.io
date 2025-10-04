@@ -33,6 +33,12 @@ export const projects: Project[] = [
     description: "Locally run LLM and Emeddings to privately communicate with your files",
   },
   {
+    title: "PDF Chatbot",
+    url: "https://interactive-pdf-rag-chatbot-production.up.railway.app",
+    image: "projects/pdf-chabot.png",
+    description: "Chatbot for interacting with PDF documents with sources for answers",
+  },
+    {
     title: "3D Wormhole",
     url: "https://dor-rondel.github.io/wormhole-game/",
     image: "projects/wormhole.png",
