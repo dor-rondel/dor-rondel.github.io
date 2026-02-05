@@ -60,8 +60,6 @@ const Room = ({ section }: RoomProps) => {
     positionY = isSmallScreen ? -1.25 : 0
   }
 
-  console.log(window.firstPage, isSmallScreen, positionY)
-
   return (
     <group dispose={null} position={[0, positionY, 0]}>
       <mesh
