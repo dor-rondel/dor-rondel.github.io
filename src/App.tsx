@@ -17,6 +17,11 @@ function App() {
 
   useEffect(() => {
     setMenuOpened(false)
+    if (scene === 0) {
+      window.firstPage = true
+    } else {
+      window.firstPage = false
+    }
   }, [scene])
 
   return (
