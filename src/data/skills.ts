@@ -5,11 +5,11 @@ export default [
   },
   {
     title: "Backend Development",
-    level: 65,
+    level: 75,
   },
   {
-    title: "Large Language Models",
-    level: 45,
+    title: "Applied AI & LLMOps",
+    level: 65,
   },
   {
     title: "Blockchain",
@@ -19,4 +19,4 @@ export default [
     title: "3D Modeling",
     level: 30,
   },
-]
+];

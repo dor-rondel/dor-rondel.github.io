@@ -42,8 +42,14 @@ export function Avatar({ animation, wireframe }: AvatarProps) {
     })
   }, [wireframe])
 
+  const isSmallScreen = window.innerWidth <= 1024
+  let positionY = 0
+  if (window?.firstPage) {
+    positionY = isSmallScreen ? -1.25 : 0
+  }
+
   return (
-    <group ref={group} dispose={null}>
+    <group ref={group} dispose={null} position={[0, positionY, 0]}>
       <group>
         <primitive object={nodes.Hips} />
         <skinnedMesh

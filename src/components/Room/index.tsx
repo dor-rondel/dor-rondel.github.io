@@ -54,8 +54,14 @@ const Room = ({ section }: RoomProps) => {
     textureGlassMaterial.opacity = glassTextureOpacity.get()
   })
 
+  const isSmallScreen = window.innerWidth <= 1200
+  let positionY = 0
+  if (window?.firstPage) {
+    positionY = isSmallScreen ? -1.25 : 0
+  }
+
   return (
-    <group dispose={null}>
+    <group dispose={null} position={[0, positionY, 0]}>
       <mesh
         name='Screen'
         geometry={nodes.Screen.geometry}

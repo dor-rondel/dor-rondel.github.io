@@ -10,7 +10,7 @@ const IntroductionScene = ({ setScene }: SceneChildProps) => (
       <span className='bg-white px-1 italic md:leading-relaxed'>Dor Rondel</span>
     </h1>
     <motion.p
-      className='text-lg text-gray-600 mt-4'
+      className='text-lg text-gray-600 mt-4 md:max-w-[420px]'
       initial={{
         opacity: 0,
         y: 25,
@@ -26,7 +26,7 @@ const IntroductionScene = ({ setScene }: SceneChildProps) => (
     >
       A software engineer exploring the intersection&nbsp;
       <br className='hidden custom-show-md' />
-      between 3D experiences, LLMs & Blockchain
+      between 3D experiences, LLMs, Multi-Agent System Architecture & Blockchain
     </motion.p>
     <motion.button
       onClick={() => setScene(3)}

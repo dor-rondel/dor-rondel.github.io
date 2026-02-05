@@ -3,12 +3,6 @@ import { Project } from "../types/Project";
 
 export const projects: Project[] = [
   {
-    title: "Degree Overview",
-    url: "https://dor-rondel.github.io/MyCompSciDegree/#/",
-    image: "projects/degree.png",
-    description: "Overview of the courses I took in university",
-  },
-  {
     title: "DNAce",
     url: "https://github.com/dor-rondel/DNace",
     image: "projects/dnace.png",
@@ -40,17 +34,24 @@ export const projects: Project[] = [
       "Locally run LLM and Emeddings to privately communicate with your files",
   },
   {
+    title: "PDF Chatbot",
+    url: "https://interactive-pdf-rag-chatbot-production.up.railway.app",
+    image: "projects/pdf-chabot.png",
+    description:
+      "Chatbot for interacting with PDF documents with sources for answers",
+  },
+  {
     title: "TTS 3D Chatbot",
     url: "https://harry-potter-3d-chatbot.vercel.app",
     image: "projects/hp-3d.png",
     description: "Harry Potter themed 3D chatbot with memory and guardrails.",
   },
   {
-    title: "PDF Chatbot",
-    url: "https://interactive-pdf-rag-chatbot-production.up.railway.app",
-    image: "projects/pdf-chabot.png",
+    title: "Agentic Ingestor",
+    url: "https://github.com/dor-rondel/telegram-data-agent",
+    image: "projects/data-ingestion-agent.png",
     description:
-      "Chatbot for interacting with PDF documents with sources for answers",
+      "LangGraph Plan & Execute agent with tools for ingesting and directing Telegram data",
   },
   {
     title: "3rd Person Flight",
@@ -75,6 +76,12 @@ export const projects: Project[] = [
     url: "https://github.com/dor-rondel/Peer-Findr",
     image: "projects/peerfindr.png",
     description: "Discover classmates before classes start",
+  },
+  {
+    title: "Degree Overview",
+    url: "https://dor-rondel.github.io/MyCompSciDegree/#/",
+    image: "projects/degree.png",
+    description: "Overview of the courses I took in university",
   },
 ];
 
