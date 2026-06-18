@@ -34,6 +34,13 @@ export const projects: Project[] = [
       "Locally run LLM and Emeddings to privately communicate with your files",
   },
   {
+    title: "Sponsor-me dApp",
+    url: "https://dor-rondel.github.io/buy-me-coffee-smart-contract/",
+    image: "projects/coffee-contract.png",
+    description:
+      "Buy me a coffee smart contract deployed on-chain via zkSync.",
+  },
+  {
     title: "PDF Chatbot",
     url: "https://interactive-pdf-rag-chatbot-production.up.railway.app",
     image: "projects/pdf-chabot.png",
@@ -45,6 +52,12 @@ export const projects: Project[] = [
     url: "https://harry-potter-3d-chatbot.vercel.app",
     image: "projects/hp-3d.png",
     description: "Harry Potter themed 3D chatbot with memory and guardrails.",
+  },
+  {
+    title: "Agentic Trader",
+    url: "https://github.com/dor-rondel/crypto-trading-multiagent-system",
+    image: "projects/crypto-agent.png",
+    description: "Multi-agent multi-wallet fallback tolerant self-improving automated crypto trading system.",
   },
   {
     title: "Agentic Ingestor",
