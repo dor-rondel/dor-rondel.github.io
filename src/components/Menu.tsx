@@ -41,6 +41,14 @@ export const Menu = ({
         <MenuButton label='Skills' handleClick={() => handleSceneChange(1)} />
         <MenuButton label='Projects' handleClick={() => handleSceneChange(2)} />
         <MenuButton label='Contact' handleClick={() => handleSceneChange(3)} />
+        <a
+          href='https://portori.cc'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-2xl font-bold cursor-pointer hover:text-indigo-600 transition-colors'
+        >
+          PorTori
+        </a>
       </div>
     </div>
   </>
